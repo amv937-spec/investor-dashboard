@@ -101,7 +101,7 @@
             padding: 2rem;
         }
         .hero {
-            background: white;
+            background: linear-gradient(135deg, white 0%, #f8f9fa 100%);
             border-radius: 16px;
             padding: 3rem 2rem;
             margin-bottom: 2rem;
@@ -112,6 +112,7 @@
             font-size: 2.2rem;
             color: var(--dark-blue);
             margin-bottom: 1rem;
+            font-weight: 700;
         }
         .filter-tabs {
             display: flex;
@@ -135,6 +136,7 @@
             background: var(--primary-orange);
             color: white;
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(232, 106, 51, 0.4);
         }
         .products-grid {
             display: grid;
@@ -155,7 +157,7 @@
             box-shadow: 0 12px 32px rgba(0,0,0,0.15);
         }
         .product-type {
-            background: var(--primary-orange);
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #d45a23 100%);
             color: white;
             padding: 0.4rem 1rem;
             border-radius: 25px;
@@ -168,11 +170,13 @@
             font-size: 1.4rem;
             color: var(--dark-blue);
             margin-bottom: 0.6rem;
+            font-weight: 700;
         }
         .fund-manager {
             color: var(--text-light);
             font-size: 0.95rem;
             margin-bottom: 1rem;
+            line-height: 1.5;
         }
         .performance-grid {
             display: grid;
@@ -183,13 +187,18 @@
         .perf-item {
             text-align: center;
             padding: 1rem;
-            background: var(--light-gray);
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e8ecef 100%);
             border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .perf-item:hover {
+            transform: scale(1.05);
         }
         .perf-label {
             font-size: 0.85rem;
             color: var(--text-light);
             margin-bottom: 0.4rem;
+            font-weight: 600;
         }
         .perf-value {
             font-size: 1.4rem;
@@ -202,7 +211,7 @@
         .holdings-info {
             margin: 1rem 0;
             padding: 1.2rem;
-            background: var(--light-gray);
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e8ecef 100%);
             border-radius: 12px;
             border-left: 4px solid var(--primary-orange);
         }
@@ -219,7 +228,7 @@
         .cta-button {
             width: 100%;
             padding: 1rem;
-            background: var(--primary-orange);
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #d45a23 100%);
             color: white;
             border: none;
             border-radius: 12px;
@@ -227,10 +236,59 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(232, 106, 51, 0.3);
         }
         .cta-button:hover {
-            background: #d45a23;
+            background: linear-gradient(135deg, #d45a23 0%, var(--primary-orange) 100%);
             transform: scale(1.02);
+        }
+        .mutual-funds-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .mutual-funds-section h2 {
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        .mf-table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+        }
+        .mf-table thead {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #2c3e50 100%);
+            color: white;
+        }
+        .mf-table th, .mf-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .mf-table th {
+            font-weight: 700;
+        }
+        .mf-table tbody tr:hover {
+            background: var(--light-gray);
+        }
+        .mf-table .return-positive {
+            color: var(--success-green);
+            font-weight: 700;
+        }
+        .disclaimer {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe8a1 100%);
+            border-left: 5px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #856404;
         }
         .whatsapp-float {
             position: fixed;
@@ -241,8 +299,6 @@
             background-color: #25d366;
             color: #FFF;
             border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
             z-index: 1000;
             display: flex;
@@ -262,7 +318,7 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
         .footer {
-            background: var(--dark-blue);
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #2c3e50 100%);
             color: white;
             padding: 3rem 2rem;
             text-align: center;
@@ -274,6 +330,8 @@
             .contact-info { text-align: center; }
             .products-grid { grid-template-columns: 1fr; }
             .performance-grid { grid-template-columns: repeat(2, 1fr); }
+            .mf-table { font-size: 0.8rem; }
+            .mf-table th, .mf-table td { padding: 0.6rem; }
         }
     </style>
 </head>
@@ -300,7 +358,7 @@
                 </div>
                 <div class="credential-item">
                     <div class="credential-badge">APMI ASSOCIATE</div>
-                    <div class="credential-text">Portfolio Managers in India<br>APRN: 05155</div>
+                    <div class="credential-text">Association of Portfolio Managers in India<br>APRN: 05155</div>
                 </div>
             </div>
         </div>
@@ -316,43 +374,15 @@
             <button class="tab-btn active" onclick="filterProducts('all')">All Products</button>
             <button class="tab-btn" onclick="filterProducts('pms')">PMS</button>
             <button class="tab-btn" onclick="filterProducts('aif')">AIF</button>
+            <button class="tab-btn" onclick="filterProducts('mf')">Mutual Funds</button>
         </div>
 
         <div class="products-grid" id="productsGrid">
-            <div class="product-card" data-category="pms">
-                <span class="product-type">PMS</span>
-                <h3>ICICI Pru PMS PIPE Strategy</h3>
-                <p class="fund-manager">ICICI Prudential | Launch: 05-09-2019<br><strong>Small Moves, Big Potential</strong></p>
-                <div class="performance-grid">
-                    <div class="perf-item">
-                        <div class="perf-label">1 Year</div>
-                        <div class="perf-value">3.08%</div>
-                    </div>
-                    <div class="perf-item">
-                        <div class="perf-label">3 Year</div>
-                        <div class="perf-value">14.72%</div>
-                    </div>
-                    <div class="perf-item">
-                        <div class="perf-label">5 Year</div>
-                        <div class="perf-value">33.33%</div>
-                    </div>
-                </div>
-                <div class="holdings-info">
-                    <h4>Investment Focus</h4>
-                    <div class="holdings-list">
-                        • AUM: ₹7193.84 Cr<br>
-                        • <strong>Mid and Small Cap</strong> segment focus<br>
-                        • Companies with economic moat<br>
-                        • 25-30 stocks | BSE 500 TRI benchmark
-                    </div>
-                </div>
-                <button class="cta-button" onclick="contactUs('ICICI PIPE Strategy')">Get Details</button>
-            </div>
-
+            <!-- PMS Products -->
             <div class="product-card" data-category="pms">
                 <span class="product-type">PMS</span>
                 <h3>Buoyant Opportunities Portfolio</h3>
-                <p class="fund-manager">Sachin Khivesara | Launch: 01-06-2018</p>
+                <p class="fund-manager">Fund Manager: Sachin Khivesara | Launch: 01-06-2018</p>
                 <div class="performance-grid">
                     <div class="perf-item">
                         <div class="perf-label">1 Year</div>
@@ -368,19 +398,129 @@
                     </div>
                 </div>
                 <div class="holdings-info">
-                    <h4>Top Holdings</h4>
+                    <h4>Top 5 Holdings (Weight: 23.5%)</h4>
                     <div class="holdings-list">
-                        • Axis Bank (6.3%) • SBI (5.0%)<br>
-                        • ICICI Bank (4.4%) • Vodafone (4.1%)
+                        • Axis Bank Ltd (6.3%)<br>
+                        • State Bank Of India Ltd (5.0%)<br>
+                        • ICICI Bank Ltd (4.4%)<br>
+                        • Vodafone Ltd (4.1%)<br>
+                        • ICICI Lombard Gen Insurance (3.8%)
                     </div>
                 </div>
-                <button class="cta-button" onclick="contactUs('Buoyant PMS')">Get Details</button>
+                <div class="holdings-info">
+                    <h4>Sector Allocation</h4>
+                    <div class="holdings-list">
+                        Banking: 22.3% | Healthcare: 9.3% | Insurance: 9.2%<br>
+                        Chemicals: 5.4% | Info Tech: 5.2%
+                    </div>
+                </div>
+                <button class="cta-button" onclick="contactUs('Buoyant Opportunities PMS')">Get Details</button>
             </div>
 
+            <div class="product-card" data-category="pms">
+                <span class="product-type">PMS</span>
+                <h3>ICICI Prudential ACE Strategy</h3>
+                <p class="fund-manager">ICICI Prudential Asset Management</p>
+                <div class="performance-grid">
+                    <div class="perf-item">
+                        <div class="perf-label">1 Year</div>
+                        <div class="perf-value">9.86%</div>
+                    </div>
+                    <div class="perf-item">
+                        <div class="perf-label">3 Year</div>
+                        <div class="perf-value">13.72%</div>
+                    </div>
+                    <div class="perf-item">
+                        <div class="perf-label">5 Year</div>
+                        <div class="perf-value">24.34%</div>
+                    </div>
+                </div>
+                <div class="holdings-info">
+                    <h4>Strategy Highlights</h4>
+                    <div class="holdings-list">
+                        • AUM: ₹1104.12 Cr<br>
+                        • Focus on quality stocks with growth potential<br>
+                        • Diversified across market caps<br>
+                        • Active risk management
+                    </div>
+                </div>
+                <button class="cta-button" onclick="contactUs('ICICI Prudential ACE Strategy')">Get Details</button>
+            </div>
+
+            <div class="product-card" data-category="pms">
+                <span class="product-type">PMS</span>
+                <h3>ICICI Pru PMS PIPE Strategy</h3>
+                <p class="fund-manager">ICICI Prudential Asset Management | Launch: 05-09-2019<br><strong>Small Moves, Big Potential</strong></p>
+                <div class="performance-grid">
+                    <div class="perf-item">
+                        <div class="perf-label">1 Year</div>
+                        <div class="perf-value">3.08%</div>
+                    </div>
+                    <div class="perf-item">
+                        <div class="perf-label">3 Year</div>
+                        <div class="perf-value">14.72%</div>
+                    </div>
+                    <div class="perf-item">
+                        <div class="perf-label">5 Year</div>
+                        <div class="perf-value">33.33%</div>
+                    </div>
+                </div>
+                <div class="holdings-info">
+                    <h4>Investment Objective</h4>
+                    <div class="holdings-list">
+                        • AUM: ₹7193.84 Cr<br>
+                        • Focus on <strong>Mid and Small Cap</strong> segment<br>
+                        • Companies with economic moat<br>
+                        • Special situations & unfavorable business cycles<br>
+                        • 25-30 stocks | Benchmark: BSE 500 TRI
+                    </div>
+                </div>
+                <button class="cta-button" onclick="contactUs('ICICI PIPE Strategy')">Get Details</button>
+            </div>
+
+            <div class="product-card" data-category="pms">
+                <span class="product-type">PMS</span>
+                <h3>Motilal Oswal Mid to Mega Strategy</h3>
+                <p class="fund-manager">Fund Manager: Madanagopal Ramu | Launch: 24-12-2019</p>
+                <div class="performance-grid">
+                    <div class="perf-item">
+                        <div class="perf-label">1 Year</div>
+                        <div class="perf-value negative">-0.9%</div>
+                    </div>
+                    <div class="perf-item">
+                        <div class="perf-label">3 Year</div>
+                        <div class="perf-value">25.3%</div>
+                    </div>
+                    <div class="perf-item">
+                        <div class="perf-label">5 Year</div>
+                        <div class="perf-value">23.1%</div>
+                    </div>
+                </div>
+                <div class="holdings-info">
+                    <h4>Top 5 Holdings (Weight: 36.1%)</h4>
+                    <div class="holdings-list">
+                        • Max India Ltd (8.3%)<br>
+                        • Radico Khaitan Ltd (7.6%)<br>
+                        • Coforge Ltd (8.9%)<br>
+                        • Polycab India Ltd (6.9%)<br>
+                        • Maruti Suzuki India Ltd (6.5%)
+                    </div>
+                </div>
+                <div class="holdings-info">
+                    <h4>Sector Allocation</h4>
+                    <div class="holdings-list">
+                        Capital Goods: 29.6% | Consumer Durables: 15.3%<br>
+                        Financial Services: 15.3% | Auto Components: 11.4%
+                    </div>
+                </div>
+                <button class="cta-button" onclick="contactUs('Motilal Oswal Mid to Mega')">Get Details</button>
+            </div>
+
+            <!-- AIF Products -->
             <div class="product-card" data-category="aif">
                 <span class="product-type">AIF</span>
-                <h3>ICICI Alpha Opportunities Fund</h3>
-                <p class="fund-manager">ICICI Prudential | Open Ended</p>
+                <h3>ICICI PRU Alpha Opportunities Fund</h3>
+                <p class="fund-manager">ICICI Prudential Alternate Investments | Open Ended</p>
                 <div class="performance-grid">
                     <div class="perf-item">
                         <div class="perf-label">1 Year</div>
@@ -391,38 +531,142 @@
                         <div class="perf-value">21.86%</div>
                     </div>
                     <div class="perf-item">
-                        <div class="perf-label">Inception</div>
+                        <div class="perf-label">Since Inception</div>
                         <div class="perf-value">22.42%</div>
                     </div>
                 </div>
                 <div class="holdings-info">
                     <h4>Fund Highlights</h4>
                     <div class="holdings-list">
-                        • Category III AIF - Long Only<br>
-                        • Alpha generation focus<br>
-                        • Concentrated portfolio
+                        • Category III AIF - Long Only Strategy<br>
+                        • Focus on alpha generation<br>
+                        • Concentrated portfolio approach<br>
+                        • Benchmark: BSE 200
                     </div>
                 </div>
-                <button class="cta-button" onclick="contactUs('ICICI Alpha AIF')">Get Details</button>
+                <button class="cta-button" onclick="contactUs('ICICI Alpha Opportunities AIF')">Get Details</button>
             </div>
+
+            <div class="product-card" data-category="aif">
+                <span class="product-type">AIF</span>
+                <h3>Buoyant Capital Opportunities Fund</h3>
+                <p class="fund-manager">Buoyant Capital | Cross-Cycle Investing Framework</p>
+                <div class="performance-grid">
+                    <div class="perf-item">
+                        <div class="perf-label">1 Year</div>
+                        <div class="perf-value">13.8%</div>
+                    </div>
+                    <div class="perf-item">
+                        <div class="perf-label">6 Months</div>
+                        <div class="perf-value">15.5%</div>
+                    </div>
+                    <div class="perf-item">
+                        <div class="perf-label">Since Inception</div>
+                        <div class="perf-value">23.0%</div>
+                    </div>
+                </div>
+                <div class="holdings-info">
+                    <h4>Key Attributes</h4>
+                    <div class="holdings-list">
+                        • Invest First: No exit option twice a month<br>
+                        • Cross-Cycle: Aggressive-Defensive Balance<br>
+                        • Skin in the Game: Directors & Family<br>
+                        • Top Performance: 20%+ TWRR, Beta 0.9 (3Y)
+                    </div>
+                </div>
+                <button class="cta-button" onclick="contactUs('Buoyant Capital Opportunities AIF')">Get Details</button>
+            </div>
+        </div>
+
+        <!-- Mutual Funds Section -->
+        <div class="mutual-funds-section" id="mutualFundsSection">
+            <h2>Top 5 Best-Performing Mutual Funds</h2>
+            <table class="mf-table">
+                <thead>
+                    <tr>
+                        <th>Fund Name</th>
+                        <th>Net Asset (₹ Cr)</th>
+                        <th>Fund Age</th>
+                        <th>Risk</th>
+                        <th>2 Years</th>
+                        <th>3 Years</th>
+                        <th>5 Years</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Invesco India Mid Cap</strong></td>
+                        <td>10,007</td>
+                        <td>18Y 7M</td>
+                        <td>Very High</td>
+                        <td class="return-positive">26.83%</td>
+                        <td class="return-positive">25.95%</td>
+                        <td class="return-positive">26.11%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bandhan Small Cap</strong></td>
+                        <td>17,380</td>
+                        <td>5Y 9M</td>
+                        <td>Very High</td>
+                        <td class="return-positive">22.09%</td>
+                        <td class="return-positive">28.53%</td>
+                        <td class="return-positive">27.06%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quant TRUST MF Small Cap</strong></td>
+                        <td>1,740</td>
+                        <td>4Y</td>
+                        <td>Very High</td>
+                        <td class="return-positive">14.54%</td>
+                        <td class="return-positive">18.44%</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TRUST MF Small Cap</strong></td>
+                        <td>1,147</td>
+                        <td>1Y 1M</td>
+                        <td>Very High</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nippon India Nifty Midcap 150</strong></td>
+                        <td>2,031</td>
+                        <td>4Y 9M</td>
+                        <td>Very High</td>
+                        <td class="return-positive">16.06%</td>
+                        <td class="return-positive">21.34%</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="disclaimer">
+            <strong>⚠️ Disclaimer:</strong> Investment in securities market are subject to market risks, read all the related documents carefully before investing. Past performance is not indicative of future returns. Please consult with your financial advisor before making investment decisions.
         </div>
     </div>
 
     <footer class="footer">
         <div class="footer-content">
             <h3>SHREEJIT VENTURES LLP</h3>
-            <p style="margin: 1rem 0; color: var(--primary-orange);">Turning Visions Into Value</p>
-            <p><strong>AMFI ARN: 321993 | APMI APRN: 05155</strong></p>
-            <p style="margin-top: 1rem;">B/225 2ND/F, ADVANCE BUSINESS PARK, AHMEDABAD 380004</p>
-            <p style="margin-top: 1rem;">
-                <a href="tel:+919035604120" style="color: var(--primary-orange);">+91-9035604120</a> | 
-                <a href="mailto:shreejitventures@outlook.com" style="color: var(--primary-orange);">shreejitventures@outlook.com</a>
+            <p style="margin: 1rem 0; color: var(--primary-orange); font-style: italic; font-size: 1.1rem;">Turning Visions Into Value</p>
+            <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                <p style="margin-bottom: 1rem;"><strong>AMFI Registered Mutual Fund Distributor</strong> | ARN: 321993</p>
+                <p><strong>APMI Associate Member</strong> | Association of Portfolio Managers in India | APRN: 05155</p>
+            </div>
+            <p><strong>Registered Office:</strong> B/225 2ND/F, SNO-2716/2/2, ADVANCE BUSINESS PARK<br>
+            OPP SWAMI NARAYAN, AHMEDABAD, Gujarat 380004, India</p>
+            <p style="margin-top: 1.5rem;">
+                <strong>Contact:</strong> <a href="tel:+919035604120" style="color: var(--primary-orange);">+91-9035604120</a><br>
+                <strong>Email:</strong> <a href="mailto:shreejitventures@outlook.com" style="color: var(--primary-orange);">shreejitventures@outlook.com</a>
             </p>
-            <p style="margin-top: 2rem; font-size: 0.9rem;">© 2025 Shreejit Ventures LLP. All rights reserved.</p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">© 2025 Shreejit Ventures LLP. All rights reserved.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/919035604120?text=Hello%20Shreejit%20Ventures" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/919035604120?text=Hello%20Shreejit%20Ventures,%20I%20would%20like%20to%20know%20more%20about%20your%20investment%20products." target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
         <svg width="30" height="30" viewBox="0 0 32 32" fill="white">
             <path d="M16 0C7.164 0 0 7.164 0 16c0 2.828.736 5.484 2.016 7.792L0 32l8.384-2.016A15.923 15.923 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.344c-2.548 0-4.94-.708-6.984-1.932l-.5-.296-5.188 1.248 1.248-5.188-.296-.5A13.29 13.29 0 012.656 16c0-7.364 5.98-13.344 13.344-13.344S29.344 8.636 29.344 16 23.364 29.344 16 29.344z"/>
             <path d="M23.5 18.844c-.376-.188-2.22-1.096-2.564-1.22-.344-.124-.596-.188-.848.188-.252.376-.972 1.22-1.192 1.472-.22.252-.44.284-.816.096-.376-.188-1.588-.584-3.024-1.864-1.116-.996-1.868-2.228-2.088-2.604-.22-.376-.024-.58.164-.768.168-.168.376-.44.564-.66.188-.22.252-.376.376-.628.124-.252.062-.472-.032-.66-.094-.188-.848-2.044-1.16-2.796-.304-.732-.612-.632-.848-.644-.22-.012-.472-.012-.724-.012s-.66.094-1.004.472c-.344.376-1.316 1.284-1.316 3.132s1.348 3.632 1.536 3.884c.188.252 2.656 4.056 6.436 5.688.9.388 1.604.62 2.152.792.904.288 1.728.248 2.38.15.724-.108 2.22-.908 2.532-1.784.312-.876.312-1.628.22-1.784-.092-.156-.344-.252-.72-.44z"/>
@@ -433,8 +677,11 @@
         function filterProducts(category) {
             const cards = document.querySelectorAll('.product-card');
             const buttons = document.querySelectorAll('.tab-btn');
+            const mfSection = document.getElementById('mutualFundsSection');
+            
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
+            
             cards.forEach(card => {
                 if (category === 'all' || card.dataset.category === category) {
                     card.style.display = 'block';
@@ -442,9 +689,18 @@
                     card.style.display = 'none';
                 }
             });
+
+            if (category === 'all' || category === 'mf') {
+                mfSection.style.display = 'block';
+            } else {
+                mfSection.style.display = 'none';
+            }
         }
+
         function contactUs(product) {
-            window.location.href = `mailto:shreejitventures@outlook.com?subject=Inquiry about ${product}`;
+            const subject = encodeURIComponent(`Inquiry about ${product}`);
+            const body = encodeURIComponent(`Hello Shreejit Ventures,\n\nI am interested in learning more about ${product}. Please provide me with detailed information and investment requirements.\n\nThank you.`);
+            window.location.href = `mailto:shreejitventures@outlook.com?subject=${subject}&body=${body}`;
         }
     </script>
 </body>

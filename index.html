@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreejit Ventures - HNI Investor Dashboard</title>
+    <title>Shreejit Ventures - Premium Investment Solutions</title>
+    <link rel="icon" type="image/x-icon" href="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6a492d7d-e35c-4ac8-acc5-1abea55f0d52/2025-12-15T05-25-41-003Z-f14f6d0e-chat-image-1765776340984-0.jpg">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
             --primary-orange: #E86A33;
             --dark-blue: #1a2332;
@@ -14,292 +18,517 @@
             --text-light: #7f8c8d;
             --success-green: #27ae60;
             --danger-red: #e74c3c;
+            --gold: #d4af37;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--light-gray);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Enhanced Header */
         .header {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, #2c3e50 100%);
+            background: linear-gradient(135deg, #0f1419 0%, var(--dark-blue) 50%, #2c3e50 100%);
             color: white;
-            padding: 2rem 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 1.5rem 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(10px);
         }
+
         .header-content {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
+
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: 2rem;
         }
+
         .logo-section {
             display: flex;
             align-items: center;
             gap: 1.5rem;
         }
+
+        .logo-container {
+            position: relative;
+        }
+
         .logo-img {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: white;
-            border-radius: 12px;
-            padding: 0.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            border-radius: 50%;
+            padding: 0.4rem;
+            box-shadow: 0 8px 24px rgba(232, 106, 51, 0.4);
             object-fit: contain;
+            border: 3px solid var(--primary-orange);
+            transition: all 0.3s ease;
         }
+
+        .logo-img:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 12px 32px rgba(232, 106, 51, 0.6);
+        }
+
         .company-info h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 0.3rem;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, white 0%, var(--primary-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
         .tagline {
             color: var(--primary-orange);
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-style: italic;
+            font-weight: 500;
         }
+
         .contact-info {
             text-align: right;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
+
         .contact-info a {
             color: var(--primary-orange);
             text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+
+        .contact-info a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        /* Credentials Bar */
+        .credentials-bar {
+            background: rgba(232, 106, 51, 0.1);
+            border-top: 1px solid rgba(232, 106, 51, 0.2);
+            margin-top: 1rem;
+            padding: 1rem 0;
+        }
+
         .credentials {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.2rem;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 3rem;
         }
-        .credential-badge {
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .credential-icon {
+            width: 40px;
+            height: 40px;
             background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .credential-details {
+            text-align: left;
+        }
+
+        .credential-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .credential-value {
+            font-size: 0.95rem;
+            font-weight: 700;
             color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 0.5rem;
         }
-        .credential-text {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            text-align: center;
-        }
+
+        /* Hero Section */
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }
+
         .hero {
-            background: linear-gradient(135deg, white 0%, #f8f9fa 100%);
-            border-radius: 16px;
-            padding: 3rem 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            background: linear-gradient(135deg, rgba(232, 106, 51, 0.05) 0%, rgba(26, 35, 50, 0.05) 100%);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(232, 106, 51, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
         .hero h2 {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             color: var(--dark-blue);
             margin-bottom: 1rem;
             font-weight: 700;
+            line-height: 1.2;
         }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-style: italic;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Filter Tabs */
         .filter-tabs {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             flex-wrap: wrap;
             justify-content: center;
-        }
-        .tab-btn {
-            padding: 1rem 2rem;
             background: white;
-            border: 2px solid var(--primary-orange);
-            color: var(--primary-orange);
+            padding: 1rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .tab-btn {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid transparent;
+            color: var(--text-dark);
             border-radius: 12px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
             transition: all 0.3s;
+            position: relative;
         }
-        .tab-btn:hover, .tab-btn.active {
+
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
             background: var(--primary-orange);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(232, 106, 51, 0.4);
+            transition: width 0.3s;
         }
+
+        .tab-btn:hover::before, .tab-btn.active::before {
+            width: 80%;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-orange);
+            background: rgba(232, 106, 51, 0.05);
+        }
+
+        /* Product Cards */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
         }
+
         .product-card {
             background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border-top: 5px solid var(--primary-orange);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 6px solid var(--primary-orange);
+            position: relative;
+            overflow: hidden;
         }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(232, 106, 51, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+            transform: translateY(-12px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
         }
+
         .product-type {
             background: linear-gradient(135deg, var(--primary-orange) 0%, #d45a23 100%);
             color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 25px;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
             font-size: 0.85rem;
             font-weight: 700;
             display: inline-block;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(232, 106, 51, 0.3);
         }
+
         .product-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--dark-blue);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
             font-weight: 700;
         }
+
         .fund-manager {
             color: var(--text-light);
             font-size: 0.95rem;
-            margin-bottom: 1rem;
-            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
+
         .performance-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            margin: 1.5rem 0;
+            margin: 2rem 0;
         }
+
         .perf-item {
             text-align: center;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--light-gray) 0%, #e8ecef 100%);
-            border-radius: 12px;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
             transition: all 0.3s;
+            border: 2px solid transparent;
         }
+
         .perf-item:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            border-color: var(--primary-orange);
+            box-shadow: 0 8px 16px rgba(232, 106, 51, 0.2);
         }
+
         .perf-label {
             font-size: 0.85rem;
             color: var(--text-light);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+
         .perf-value {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--success-green);
+            font-family: 'Playfair Display', serif;
         }
+
         .perf-value.negative {
             color: var(--danger-red);
         }
+
         .holdings-info {
-            margin: 1rem 0;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, var(--light-gray) 0%, #e8ecef 100%);
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-orange);
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(232, 106, 51, 0.05) 0%, rgba(232, 106, 51, 0.02) 100%);
+            border-radius: 16px;
+            border-left: 5px solid var(--primary-orange);
         }
+
         .holdings-info h4 {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--dark-blue);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
             font-weight: 700;
         }
+
         .holdings-list {
             font-size: 0.9rem;
-            line-height: 1.8;
+            line-height: 2;
+            color: var(--text-dark);
         }
+
         .cta-button {
             width: 100%;
-            padding: 1rem;
+            padding: 1.2rem;
             background: linear-gradient(135deg, var(--primary-orange) 0%, #d45a23 100%);
             color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 1rem;
+            border-radius: 16px;
+            font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(232, 106, 51, 0.3);
+            box-shadow: 0 6px 20px rgba(232, 106, 51, 0.3);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
+
         .cta-button:hover {
             background: linear-gradient(135deg, #d45a23 0%, var(--primary-orange) 100%);
-            transform: scale(1.02);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(232, 106, 51, 0.5);
         }
+
+        /* Mutual Funds Table */
         .mutual-funds-section {
             background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         }
+
         .mutual-funds-section h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--dark-blue);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             text-align: center;
             font-weight: 700;
         }
+
         .mf-table {
             width: 100%;
             border-collapse: collapse;
             overflow-x: auto;
             display: block;
         }
+
         .mf-table thead {
             background: linear-gradient(135deg, var(--dark-blue) 0%, #2c3e50 100%);
             color: white;
         }
+
         .mf-table th, .mf-table td {
-            padding: 1.2rem;
+            padding: 1.5rem;
             text-align: left;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e9ecef;
         }
+
         .mf-table th {
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
         }
+
+        .mf-table tbody tr {
+            transition: all 0.3s;
+        }
+
         .mf-table tbody tr:hover {
-            background: var(--light-gray);
+            background: linear-gradient(135deg, rgba(232, 106, 51, 0.05) 0%, transparent 100%);
+            transform: scale(1.01);
         }
+
         .mf-table .return-positive {
             color: var(--success-green);
             font-weight: 700;
+            font-size: 1.1rem;
         }
+
+        /* Disclaimer */
         .disclaimer {
             background: linear-gradient(135deg, #fff3cd 0%, #ffe8a1 100%);
-            border-left: 5px solid #ffc107;
-            padding: 1.5rem;
-            margin: 2.5rem 0;
-            border-radius: 12px;
+            border-left: 6px solid #ffc107;
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 16px;
             font-size: 0.95rem;
             color: #856404;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
         }
+
+        /* WhatsApp Button */
         .whatsapp-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             bottom: 30px;
             right: 30px;
-            background-color: #25d366;
+            background: linear-gradient(135deg, #25d366 0%, #128C7E 100%);
             color: #FFF;
-            border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            border-radius: 50%;
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.6);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -308,30 +537,53 @@
             transition: all 0.3s;
             animation: pulse 2s infinite;
         }
+
         .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.1);
+            transform: scale(1.15);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.8);
         }
+
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
+
+        /* Footer */
         .footer {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, #2c3e50 100%);
+            background: linear-gradient(135deg, #0f1419 0%, var(--dark-blue) 50%, #2c3e50 100%);
             color: white;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem 2rem;
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
+
+        .footer h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-credentials {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
         .hidden { display: none; }
+
         @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
             .top-bar { flex-direction: column; text-align: center; }
             .contact-info { text-align: center; }
             .products-grid { grid-template-columns: 1fr; }
             .performance-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-row { gap: 1.5rem; }
+            .stat-number { font-size: 2rem; }
             .mf-table { font-size: 0.8rem; }
-            .mf-table th, .mf-table td { padding: 0.6rem; }
+            .mf-table th, .mf-table td { padding: 0.8rem; }
+            .credentials { gap: 1.5rem; }
         }
     </style>
 </head>
@@ -340,25 +592,35 @@
         <div class="header-content">
             <div class="top-bar">
                 <div class="logo-section">
-                    <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6a492d7d-e35c-4ac8-acc5-1abea55f0d52/2025-12-15T05-25-41-003Z-f14f6d0e-chat-image-1765776340984-0.jpg" alt="Shreejit Ventures" class="logo-img">
+                    <div class="logo-container">
+                        <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6a492d7d-e35c-4ac8-acc5-1abea55f0d52/2025-12-15T05-25-41-003Z-f14f6d0e-chat-image-1765776340984-0.jpg" alt="Shreejit Ventures" class="logo-img">
+                    </div>
                     <div class="company-info">
                         <h1>SHREEJIT VENTURES LLP</h1>
                         <p class="tagline">Turning Visions Into Value</p>
                     </div>
                 </div>
                 <div class="contact-info">
-                    <p><strong>Contact:</strong> <a href="tel:+919035604120">+91-9035604120</a></p>
-                    <p><a href="mailto:shreejitventures@outlook.com">shreejitventures@outlook.com</a></p>
+                    <p><strong>📞</strong> <a href="tel:+919035604120">+91-9035604120</a></p>
+                    <p><strong>✉️</strong> <a href="mailto:shreejitventures@outlook.com">shreejitventures@outlook.com</a></p>
                 </div>
             </div>
+        </div>
+        <div class="credentials-bar">
             <div class="credentials">
                 <div class="credential-item">
-                    <div class="credential-badge">AMFI REGISTERED</div>
-                    <div class="credential-text">Mutual Fund Distributor<br>ARN: 321993</div>
+                    <div class="credential-icon">A</div>
+                    <div class="credential-details">
+                        <div class="credential-label">AMFI Registered</div>
+                        <div class="credential-value">ARN: 321993</div>
+                    </div>
                 </div>
                 <div class="credential-item">
-                    <div class="credential-badge">APMI ASSOCIATE</div>
-                    <div class="credential-text">Association of Portfolio Managers in India<br>APRN: 05155</div>
+                    <div class="credential-icon">P</div>
+                    <div class="credential-details">
+                        <div class="credential-label">APMI Associate</div>
+                        <div class="credential-value">APRN: 05155</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -366,14 +628,34 @@
 
     <div class="container">
         <div class="hero">
-            <h2>HNI Investor Dashboard</h2>
-            <p>"We don't sell products. We build portfolios that last decades."</p>
+            <div class="hero-content">
+                <h2>Premium Investment Solutions for HNI Investors</h2>
+                <p>"We don't sell products. We build portfolios that last decades."</p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-number">11+</div>
+                        <div class="stat-label">Investment Products</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">PMS Strategies</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">AIF Funds</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Top Mutual Funds</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="filter-tabs">
             <button class="tab-btn active" onclick="filterProducts('all')">All Products</button>
-            <button class="tab-btn" onclick="filterProducts('pms')">PMS</button>
-            <button class="tab-btn" onclick="filterProducts('aif')">AIF</button>
+            <button class="tab-btn" onclick="filterProducts('pms')">PMS Strategies</button>
+            <button class="tab-btn" onclick="filterProducts('aif')">AIF Funds</button>
             <button class="tab-btn" onclick="filterProducts('mf')">Mutual Funds</button>
         </div>
 
@@ -398,7 +680,7 @@
                     </div>
                 </div>
                 <div class="holdings-info">
-                    <h4>Top 5 Holdings (Weight: 23.5%)</h4>
+                    <h4>Top 5 Holdings (23.5%)</h4>
                     <div class="holdings-list">
                         • Axis Bank Ltd (6.3%)<br>
                         • State Bank Of India Ltd (5.0%)<br>
@@ -450,7 +732,7 @@
             <div class="product-card" data-category="pms">
                 <span class="product-type">PMS</span>
                 <h3>ICICI Pru PMS PIPE Strategy</h3>
-                <p class="fund-manager">ICICI Prudential Asset Management | Launch: 05-09-2019<br><strong>Small Moves, Big Potential</strong></p>
+                <p class="fund-manager">ICICI Prudential | Launch: 05-09-2019<br><strong>Small Moves, Big Potential</strong></p>
                 <div class="performance-grid">
                     <div class="perf-item">
                         <div class="perf-label">1 Year</div>
@@ -466,13 +748,12 @@
                     </div>
                 </div>
                 <div class="holdings-info">
-                    <h4>Investment Objective</h4>
+                    <h4>Investment Focus</h4>
                     <div class="holdings-list">
                         • AUM: ₹7193.84 Cr<br>
-                        • Focus on <strong>Mid and Small Cap</strong> segment<br>
+                        • <strong>Mid and Small Cap</strong> segment<br>
                         • Companies with economic moat<br>
-                        • Special situations & unfavorable business cycles<br>
-                        • 25-30 stocks | Benchmark: BSE 500 TRI
+                        • 25-30 stocks | BSE 500 TRI
                     </div>
                 </div>
                 <button class="cta-button" onclick="contactUs('ICICI PIPE Strategy')">Get Details</button>
@@ -480,7 +761,7 @@
 
             <div class="product-card" data-category="pms">
                 <span class="product-type">PMS</span>
-                <h3>Motilal Oswal Mid to Mega Strategy</h3>
+                <h3>Motilal Oswal Mid to Mega</h3>
                 <p class="fund-manager">Fund Manager: Madanagopal Ramu | Launch: 24-12-2019</p>
                 <div class="performance-grid">
                     <div class="perf-item">
@@ -497,7 +778,7 @@
                     </div>
                 </div>
                 <div class="holdings-info">
-                    <h4>Top 5 Holdings (Weight: 36.1%)</h4>
+                    <h4>Top 5 Holdings (36.1%)</h4>
                     <div class="holdings-list">
                         • Max India Ltd (8.3%)<br>
                         • Radico Khaitan Ltd (7.6%)<br>
@@ -506,20 +787,13 @@
                         • Maruti Suzuki India Ltd (6.5%)
                     </div>
                 </div>
-                <div class="holdings-info">
-                    <h4>Sector Allocation</h4>
-                    <div class="holdings-list">
-                        Capital Goods: 29.6% | Consumer Durables: 15.3%<br>
-                        Financial Services: 15.3% | Auto Components: 11.4%
-                    </div>
-                </div>
                 <button class="cta-button" onclick="contactUs('Motilal Oswal Mid to Mega')">Get Details</button>
             </div>
 
             <!-- AIF Products -->
             <div class="product-card" data-category="aif">
                 <span class="product-type">AIF</span>
-                <h3>ICICI PRU Alpha Opportunities Fund</h3>
+                <h3>ICICI PRU Alpha Opportunities</h3>
                 <p class="fund-manager">ICICI Prudential Alternate Investments | Open Ended</p>
                 <div class="performance-grid">
                     <div class="perf-item">
@@ -531,26 +805,26 @@
                         <div class="perf-value">21.86%</div>
                     </div>
                     <div class="perf-item">
-                        <div class="perf-label">Since Inception</div>
+                        <div class="perf-label">Inception</div>
                         <div class="perf-value">22.42%</div>
                     </div>
                 </div>
                 <div class="holdings-info">
                     <h4>Fund Highlights</h4>
                     <div class="holdings-list">
-                        • Category III AIF - Long Only Strategy<br>
-                        • Focus on alpha generation<br>
-                        • Concentrated portfolio approach<br>
+                        • Category III AIF - Long Only<br>
+                        • Alpha generation focus<br>
+                        • Concentrated portfolio<br>
                         • Benchmark: BSE 200
                     </div>
                 </div>
-                <button class="cta-button" onclick="contactUs('ICICI Alpha Opportunities AIF')">Get Details</button>
+                <button class="cta-button" onclick="contactUs('ICICI Alpha AIF')">Get Details</button>
             </div>
 
             <div class="product-card" data-category="aif">
                 <span class="product-type">AIF</span>
-                <h3>Buoyant Capital Opportunities Fund</h3>
-                <p class="fund-manager">Buoyant Capital | Cross-Cycle Investing Framework</p>
+                <h3>Buoyant Capital Opportunities</h3>
+                <p class="fund-manager">Buoyant Capital | Cross-Cycle Investing</p>
                 <div class="performance-grid">
                     <div class="perf-item">
                         <div class="perf-label">1 Year</div>
@@ -561,24 +835,24 @@
                         <div class="perf-value">15.5%</div>
                     </div>
                     <div class="perf-item">
-                        <div class="perf-label">Since Inception</div>
+                        <div class="perf-label">Inception</div>
                         <div class="perf-value">23.0%</div>
                     </div>
                 </div>
                 <div class="holdings-info">
                     <h4>Key Attributes</h4>
                     <div class="holdings-list">
-                        • Invest First: No exit option twice a month<br>
-                        • Cross-Cycle: Aggressive-Defensive Balance<br>
-                        • Skin in the Game: Directors & Family<br>
-                        • Top Performance: 20%+ TWRR, Beta 0.9 (3Y)
+                        • Invest First: No exit twice/month<br>
+                        • Cross-Cycle Balance<br>
+                        • Directors & Family invested<br>
+                        • 20%+ TWRR, Beta 0.9 (3Y)
                     </div>
                 </div>
-                <button class="cta-button" onclick="contactUs('Buoyant Capital Opportunities AIF')">Get Details</button>
+                <button class="cta-button" onclick="contactUs('Buoyant Capital AIF')">Get Details</button>
             </div>
         </div>
 
-        <!-- Mutual Funds Section -->
+        <!-- Mutual Funds -->
         <div class="mutual-funds-section" id="mutualFundsSection">
             <h2>Top 5 Best-Performing Mutual Funds</h2>
             <table class="mf-table">
@@ -586,7 +860,7 @@
                     <tr>
                         <th>Fund Name</th>
                         <th>Net Asset (₹ Cr)</th>
-                        <th>Fund Age</th>
+                        <th>Age</th>
                         <th>Risk</th>
                         <th>2 Years</th>
                         <th>3 Years</th>
@@ -651,23 +925,23 @@
     <footer class="footer">
         <div class="footer-content">
             <h3>SHREEJIT VENTURES LLP</h3>
-            <p style="margin: 1rem 0; color: var(--primary-orange); font-style: italic; font-size: 1.1rem;">Turning Visions Into Value</p>
-            <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
-                <p style="margin-bottom: 1rem;"><strong>AMFI Registered Mutual Fund Distributor</strong> | ARN: 321993</p>
-                <p><strong>APMI Associate Member</strong> | Association of Portfolio Managers in India | APRN: 05155</p>
+            <p style="margin: 1rem 0; color: var(--primary-orange); font-style: italic; font-size: 1.2rem;">Turning Visions Into Value</p>
+            <div class="footer-credentials">
+                <p style="margin-bottom: 1rem; font-size: 1.1rem;"><strong>AMFI Registered Mutual Fund Distributor</strong> | ARN: 321993</p>
+                <p style="font-size: 1.1rem;"><strong>APMI Associate Member</strong> | Association of Portfolio Managers in India | APRN: 05155</p>
             </div>
             <p><strong>Registered Office:</strong> B/225 2ND/F, SNO-2716/2/2, ADVANCE BUSINESS PARK<br>
             OPP SWAMI NARAYAN, AHMEDABAD, Gujarat 380004, India</p>
             <p style="margin-top: 1.5rem;">
-                <strong>Contact:</strong> <a href="tel:+919035604120" style="color: var(--primary-orange);">+91-9035604120</a><br>
-                <strong>Email:</strong> <a href="mailto:shreejitventures@outlook.com" style="color: var(--primary-orange);">shreejitventures@outlook.com</a>
+                <strong>Contact:</strong> <a href="tel:+919035604120" style="color: var(--primary-orange);">+91-9035604120</a> | 
+                <a href="mailto:shreejitventures@outlook.com" style="color: var(--primary-orange);">shreejitventures@outlook.com</a>
             </p>
-            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">© 2025 Shreejit Ventures LLP. All rights reserved.</p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">© 2025 Shreejit Ventures LLP. All rights reserved.</p>
         </div>
     </footer>
 
     <a href="https://wa.me/919035604120?text=Hello%20Shreejit%20Ventures,%20I%20would%20like%20to%20know%20more%20about%20your%20investment%20products." target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
-        <svg width="30" height="30" viewBox="0 0 32 32" fill="white">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="white">
             <path d="M16 0C7.164 0 0 7.164 0 16c0 2.828.736 5.484 2.016 7.792L0 32l8.384-2.016A15.923 15.923 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.344c-2.548 0-4.94-.708-6.984-1.932l-.5-.296-5.188 1.248 1.248-5.188-.296-.5A13.29 13.29 0 012.656 16c0-7.364 5.98-13.344 13.344-13.344S29.344 8.636 29.344 16 23.364 29.344 16 29.344z"/>
             <path d="M23.5 18.844c-.376-.188-2.22-1.096-2.564-1.22-.344-.124-.596-.188-.848.188-.252.376-.972 1.22-1.192 1.472-.22.252-.44.284-.816.096-.376-.188-1.588-.584-3.024-1.864-1.116-.996-1.868-2.228-2.088-2.604-.22-.376-.024-.58.164-.768.168-.168.376-.44.564-.66.188-.22.252-.376.376-.628.124-.252.062-.472-.032-.66-.094-.188-.848-2.044-1.16-2.796-.304-.732-.612-.632-.848-.644-.22-.012-.472-.012-.724-.012s-.66.094-1.004.472c-.344.376-1.316 1.284-1.316 3.132s1.348 3.632 1.536 3.884c.188.252 2.656 4.056 6.436 5.688.9.388 1.604.62 2.152.792.904.288 1.728.248 2.38.15.724-.108 2.22-.908 2.532-1.784.312-.876.312-1.628.22-1.784-.092-.156-.344-.252-.72-.44z"/>
         </svg>
